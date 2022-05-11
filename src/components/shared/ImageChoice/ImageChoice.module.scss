@@ -1,0 +1,15 @@
+.choice {
+  height: 100px;
+  width: 100%;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.selected {
+  border: 2px solid red !important;
+  border-radius: 10%;
+}
