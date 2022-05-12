@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ChooseLure/static/css/main.84be260f.css",
-    "main.js": "/ChooseLure/static/js/main.499a6164.js",
+    "main.js": "/ChooseLure/static/js/main.aad9996e.js",
     "static/js/787.313b07b1.chunk.js": "/ChooseLure/static/js/787.313b07b1.chunk.js",
     "static/media/pike.png": "/ChooseLure/static/media/pike.5e9d2f05f393dc5498bb.png",
     "static/media/perch.png": "/ChooseLure/static/media/perch.dc00177e19c108a3a1d9.png",
@@ -11,11 +11,11 @@
     "static/media/summer.png": "/ChooseLure/static/media/summer.743d305190cf317acb52.png",
     "index.html": "/ChooseLure/index.html",
     "main.84be260f.css.map": "/ChooseLure/static/css/main.84be260f.css.map",
-    "main.499a6164.js.map": "/ChooseLure/static/js/main.499a6164.js.map",
+    "main.aad9996e.js.map": "/ChooseLure/static/js/main.aad9996e.js.map",
     "787.313b07b1.chunk.js.map": "/ChooseLure/static/js/787.313b07b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84be260f.css",
-    "static/js/main.499a6164.js"
+    "static/js/main.aad9996e.js"
   ]
 }
