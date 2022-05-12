@@ -2,15 +2,15 @@ import { Card, CardContent, CardHeader } from '@mui/material';
 import PropTypes from 'prop-types';
 import styles from './Results.module.scss';
 
-export default function Results() {
+export default function Results({ results }) {
   return (
     <Card className={styles.container}>
       <CardHeader>Résultats</CardHeader>
       <CardContent>
         <ul className={styles.resultsContainer}>
-          <li>Spinnerbait est un bon leurre</li>
-          <li>Couleure naturelle</li>
-          <li>Taille petite</li>
+          {results.map(res => (
+            <li>{res}</li>
+          ))}
         </ul>
       </CardContent>
     </Card>
@@ -18,5 +18,5 @@ export default function Results() {
 }
 
 Results.propTypes = {
-
+  results: PropTypes.arrayOf(PropTypes.string)
 }

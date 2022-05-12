@@ -6,7 +6,7 @@ import TargetFishSelector from './components/selectors/TargetFishSelector/Target
 import SeasonSelector from './components/selectors/SeasonSelector/SeasonSelector';
 import Results from './components/Results/Results';
 import styles from './App.module.scss'
-import { putElementInMiddle } from './utils';
+import { getResultsFromContext, putElementInMiddle } from './utils';
 
 const initialState = {
   targetFishSelectOpen: true,
@@ -24,13 +24,15 @@ function reducer(state, action) {
         ...state,
         targetFish: action.payload,
         targetFishSelectOpen: false,
-        seasonSelectOpen: true
+        seasonSelectOpen: true,
+        showResults: action.payload && state.season
       }
     case 'setSeason':
       return {
         ...state,
         season: action.payload,
-        seasonSelectOpen: false
+        seasonSelectOpen: false,
+        showResults: state.targetFish && action.payload
       }
     case 'setStateOpenSelector':
       return {
@@ -73,7 +75,7 @@ function App() {
         {
           state.showResults ? (
             <>
-              <Results />
+              <Results results={getResultsFromContext({season: state.season, targetFish: state.targetFish})} />
               <Button
                 variant="outlined"
                 onClick={() => dispatch({ type: 'clear' })}
