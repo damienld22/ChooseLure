@@ -1,0 +1,12 @@
+.selected {
+  border: 2px solid red !important;
+  border-radius: 10%;
+}
+
+.choices {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 0;
+}

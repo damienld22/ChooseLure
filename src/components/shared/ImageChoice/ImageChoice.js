@@ -5,7 +5,7 @@ import styles from './ImageChoice.module.scss';
 export default function ImageChoice({ onClick, isSelected, picture, label }) {
   return (
     <Paper onClick={onClick} elevation={8} className={`${styles.choice} ${isSelected && styles.selected}`}>
-      <img alt="Perch" src={picture} style={{maxWidth: '100%'}} />
+      <img alt={label} src={picture} style={{maxWidth: '100%', maxHeight: '80%'}} />
       <Typography align='center'>{label}</Typography>
     </Paper>
   )
