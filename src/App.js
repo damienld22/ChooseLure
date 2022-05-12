@@ -1,15 +1,18 @@
 import { useReducer } from 'react';
-import { Container } from '@mui/material';
-import './App.css';
+import { Button, Container } from '@mui/material';
+import ClearIcon from '@mui/icons-material/Clear';
 import Header from './components/Header';
 import TargetFishSelector from './components/selectors/TargetFishSelector/TargetFishSelector';
 import SeasonSelector from './components/selectors/SeasonSelector/SeasonSelector';
+import Results  from './components/Results/Results';
+import styles from './App.module.scss'
 
 const initialState = {
   targetFishSelectOpen: true,
   seasonSelectOpen: false,
   targetFish: null,
-  season: null
+  season: null,
+  showResults: false
 }
 
 function reducer(state, action) {
@@ -32,6 +35,10 @@ function reducer(state, action) {
         ...state,
         [action.payload.selector]: action.payload.open
       }
+    case 'setResultsOpen':
+      return {...state, showResults: action.payload}
+    case 'clear':
+      return initialState;
     default:
       return state;
   }
@@ -39,9 +46,8 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
-
   return (
-    <Container>
+    <Container className={styles.container}>
       <Header />
 
       <div style={{marginTop: '10%'}}>
@@ -57,6 +63,29 @@ function App() {
           onSelected={value => dispatch({type: 'setSeason', payload: value})}
           selected={state.season} />
       </div>
+
+      {
+        state.showResults ? (
+          <>
+            <Results />
+            <Button
+              variant="outlined"
+              onClick={() => dispatch({type: 'clear'})}
+              startIcon={<ClearIcon />}>
+                Réinitialiser
+            </Button>
+          </>
+        ) : (
+          <Button
+            color="success"
+            disabled={!state.targetFish || !state.season}
+            onClick={() => dispatch({type: 'setResultsOpen', payload: true})}
+            variant='contained'>
+              Voir les résultats
+          </Button>
+        )
+      }
+
 
     </Container>
   );
