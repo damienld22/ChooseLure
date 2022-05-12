@@ -4,8 +4,9 @@ import ClearIcon from '@mui/icons-material/Clear';
 import Header from './components/Header';
 import TargetFishSelector from './components/selectors/TargetFishSelector/TargetFishSelector';
 import SeasonSelector from './components/selectors/SeasonSelector/SeasonSelector';
-import Results  from './components/Results/Results';
+import Results from './components/Results/Results';
 import styles from './App.module.scss'
+import { putElementInMiddle } from './utils';
 
 const initialState = {
   targetFishSelectOpen: true,
@@ -16,8 +17,9 @@ const initialState = {
 }
 
 function reducer(state, action) {
-  switch(action.type) {
+  switch (action.type) {
     case 'setTargetFish':
+      putElementInMiddle('seasonSelector'); // Put next selector to middle
       return {
         ...state,
         targetFish: action.payload,
@@ -36,7 +38,7 @@ function reducer(state, action) {
         [action.payload.selector]: action.payload.open
       }
     case 'setResultsOpen':
-      return {...state, showResults: action.payload}
+      return { ...state, showResults: action.payload }
     case 'clear':
       return initialState;
     default:
@@ -46,45 +48,53 @@ function reducer(state, action) {
 
 function App() {
   const [state, dispatch] = useReducer(reducer, initialState);
+
   return (
     <Container className={styles.container}>
       <Header />
 
-      <div style={{marginTop: '10%'}}>
+      <div style={{ marginTop: '10%' }}>
         <TargetFishSelector
           isOpen={state.targetFishSelectOpen}
-          onOpenChange={open => dispatch({type: 'setStateOpenSelector', payload: {selector: 'targetFishSelectOpen', open}})}
-          onSelected={value => dispatch({type: 'setTargetFish', payload: value})}
+          onOpenChange={open => dispatch({ type: 'setStateOpenSelector', payload: { selector: 'targetFishSelectOpen', open } })}
+          onSelected={value => dispatch({ type: 'setTargetFish', payload: value })}
           selected={state.targetFish} />
 
-        <SeasonSelector
-          isOpen={state.seasonSelectOpen}
-          onOpenChange={open => dispatch({type: 'setStateOpenSelector', payload: {selector: 'seasonSelectOpen', open}})}
-          onSelected={value => dispatch({type: 'setSeason', payload: value})}
-          selected={state.season} />
+        <div id="seasonSelector" className={styles.seasonSelector}>
+          <SeasonSelector
+            isOpen={state.seasonSelectOpen}
+            onOpenChange={open => dispatch({ type: 'setStateOpenSelector', payload: { selector: 'seasonSelectOpen', open } })}
+            onSelected={value => dispatch({ type: 'setSeason', payload: value })}
+            selected={state.season} />
+        </div>
       </div>
 
-      {
-        state.showResults ? (
-          <>
-            <Results />
-            <Button
-              variant="outlined"
-              onClick={() => dispatch({type: 'clear'})}
-              startIcon={<ClearIcon />}>
+      <div className={styles.results}>
+        {
+          state.showResults ? (
+            <>
+              <Results />
+              <Button
+                variant="outlined"
+                onClick={() => dispatch({ type: 'clear' })}
+                startIcon={<ClearIcon />}>
                 Réinitialiser
-            </Button>
-          </>
-        ) : (
-          <Button
-            color="success"
-            disabled={!state.targetFish || !state.season}
-            onClick={() => dispatch({type: 'setResultsOpen', payload: true})}
-            variant='contained'>
-              Voir les résultats
-          </Button>
-        )
-      }
+              </Button>
+            </>
+          ) : (
+            <div>
+              <Button
+                color="success"
+                disabled={!state.targetFish || !state.season}
+                onClick={() => dispatch({ type: 'setResultsOpen', payload: true })}
+                variant='contained'>
+                Voir les résultats
+              </Button>
+            </div>
+          )
+        }
+      </div>
+
 
 
     </Container>
