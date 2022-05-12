@@ -1,21 +1,22 @@
 {
   "files": {
     "main.css": "/ChooseLure/static/css/main.84be260f.css",
-    "main.js": "/ChooseLure/static/js/main.aad9996e.js",
+    "main.js": "/ChooseLure/static/js/main.f2350310.js",
     "static/js/787.313b07b1.chunk.js": "/ChooseLure/static/js/787.313b07b1.chunk.js",
     "static/media/pike.png": "/ChooseLure/static/media/pike.5e9d2f05f393dc5498bb.png",
     "static/media/perch.png": "/ChooseLure/static/media/perch.dc00177e19c108a3a1d9.png",
+    "service-worker.js": "/ChooseLure/service-worker.js",
     "static/media/winter.png": "/ChooseLure/static/media/winter.0c42753d2901e8a1aedc.png",
     "static/media/autumn.png": "/ChooseLure/static/media/autumn.d3283c27cd1cd274b280.png",
     "static/media/spring.png": "/ChooseLure/static/media/spring.2c1845c7f204d4fc9e8b.png",
     "static/media/summer.png": "/ChooseLure/static/media/summer.743d305190cf317acb52.png",
     "index.html": "/ChooseLure/index.html",
     "main.84be260f.css.map": "/ChooseLure/static/css/main.84be260f.css.map",
-    "main.aad9996e.js.map": "/ChooseLure/static/js/main.aad9996e.js.map",
+    "main.f2350310.js.map": "/ChooseLure/static/js/main.f2350310.js.map",
     "787.313b07b1.chunk.js.map": "/ChooseLure/static/js/787.313b07b1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84be260f.css",
-    "static/js/main.aad9996e.js"
+    "static/js/main.f2350310.js"
   ]
 }
