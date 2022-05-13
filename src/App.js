@@ -1,7 +1,7 @@
 import { useReducer } from 'react';
 import { Button, Container } from '@mui/material';
 import ClearIcon from '@mui/icons-material/Clear';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 import TargetFishSelector from './components/selectors/TargetFishSelector/TargetFishSelector';
 import SeasonSelector from './components/selectors/SeasonSelector/SeasonSelector';
 import Results from './components/Results/Results';

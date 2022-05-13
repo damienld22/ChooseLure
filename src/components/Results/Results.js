@@ -9,7 +9,7 @@ export default function Results({ results }) {
       <CardContent>
         <ul className={styles.resultsContainer}>
           {results.map(res => (
-            <li>{res}</li>
+            <li key={res}>{res}</li>
           ))}
         </ul>
       </CardContent>
