@@ -23,26 +23,48 @@ export function getResultsFromContext({targetFish, season}) {
 function getPikeResults({season}) {
   if (season === SPRING) {
     return [
-      "Le spinnerbait est un classique toute saison, surtout en début de saison"
+      "Le spinnerbait est un classique toute saison, surtout en début de saison",
+      "Le jerkbait couleur naturelle, notamment pour la pêche en pleine eau",
+      "Le crankbait couleur naturelle",
+      "La cuillère est toujours un classique"
     ]
   } else if (season === SUMMER) {
     return [
-      "Le spinnerbait est un classique toute saison"
+      "Le spinnerbait est un classique toute saison",
+      "La cuillère est toujours un classique",
+      "Uilisation de leurres plus petits de manière générale"
     ];
   } else if (season === AUTUMN) {
     return [
-      "Le spinnerbait est un classique toute saison"
+      "Le spinnerbait est un classique toute saison",
+      "La cuillère est toujours un classique",
+      "Le crankbait pour une propection large"
     ];
   } else if (season === WINTER) {
     return [
-      "Le spinnerbait est un classique toute saison"
+      "Le spinnerbait est un classique toute saison",
+      "La cuillère est toujours un classique",
+      "Utiliser des plus gros leurres de manière générale"
     ]
+  } else {
+    return [];
   }
-
-
-  return [];
 }
 
 function getPerchResults({season}) {
-  return [];
+  if (season === SPRING) {
+    return [
+    ]
+  } else if (season === SUMMER) {
+    return [
+    ];
+  } else if (season === AUTUMN) {
+    return [
+    ];
+  } else if (season === WINTER) {
+    return [
+    ]
+  } else {
+    return [];
+  }
 }
