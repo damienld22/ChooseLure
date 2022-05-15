@@ -8,6 +8,11 @@ export const WINTER = 'Hiver';
 export const AUTUMN = 'Automne';
 export const SPRING = 'Printemps';
 
+// WEATHER
+export const SUN = 'Ensoleillé';
+export const CLOUD = 'Nuageux';
+export const RAIN = 'Pluvieux';
+
 export function putElementInMiddle(id) {
   document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});
 }

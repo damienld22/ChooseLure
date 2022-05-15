@@ -7,12 +7,15 @@ import SeasonSelector from './components/selectors/SeasonSelector/SeasonSelector
 import Results from './components/Results/Results';
 import styles from './App.module.scss'
 import { getResultsFromContext, putElementInMiddle } from './utils';
+import WeatherSelector from './components/selectors/WeatherSelector/WeatherSelector';
 
 const initialState = {
   targetFishSelectOpen: true,
   seasonSelectOpen: false,
+  weatherSelectOpen: false,
   targetFish: null,
   season: null,
+  weather: null,
   showResults: false
 }
 
@@ -25,14 +28,23 @@ function reducer(state, action) {
         targetFish: action.payload,
         targetFishSelectOpen: false,
         seasonSelectOpen: true,
-        showResults: action.payload && state.season
+        showResults: action.payload && state.season && state.weather
       }
     case 'setSeason':
+      putElementInMiddle('weatherSelector'); // Put next selector to middle
       return {
         ...state,
         season: action.payload,
         seasonSelectOpen: false,
-        showResults: state.targetFish && action.payload
+        weatherSelectOpen: true,
+        showResults: state.targetFish && action.payload && state.weather
+      }
+    case 'setWeather':
+      return {
+        ...state,
+        weather: action.payload,
+        weatherSelectOpen: false,
+        showResults: state.targetFish && action.payload && state.season
       }
     case 'setStateOpenSelector':
       return {
@@ -68,6 +80,14 @@ function App() {
             onOpenChange={open => dispatch({ type: 'setStateOpenSelector', payload: { selector: 'seasonSelectOpen', open } })}
             onSelected={value => dispatch({ type: 'setSeason', payload: value })}
             selected={state.season} />
+        </div>
+        
+        <div id="weatherSelector" className={styles.weatherSelector}>
+          <WeatherSelector
+            isOpen={state.weatherSelectOpen}
+            onOpenChange={open => dispatch({ type: 'setStateOpenSelector', payload: { selector: 'weatherSelectOpen', open } })}
+            onSelected={value => dispatch({ type: 'setWeather', payload: value })}
+            selected={state.weather} />
         </div>
       </div>
 
