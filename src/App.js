@@ -112,7 +112,7 @@ function App() {
 
       <div className={styles.results}>
         {
-          state.showResults ? (
+          state.showResults && (
             <>
               <Results results={getResultsFromContext({season: state.season, targetFish: state.targetFish})} />
               <Button
@@ -122,16 +122,6 @@ function App() {
                 Réinitialiser
               </Button>
             </>
-          ) : (
-            <div>
-              <Button
-                color="success"
-                disabled={!state.targetFish || !state.season}
-                onClick={() => dispatch({ type: 'setResultsOpen', payload: true })}
-                variant='contained'>
-                Voir les résultats
-              </Button>
-            </div>
           )
         }
       </div>
