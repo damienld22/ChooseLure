@@ -13,6 +13,10 @@ export const SUN = 'Ensoleillé';
 export const CLOUD = 'Nuageux';
 export const RAIN = 'Pluvieux';
 
+// WATER COLOR
+export const TROUBLED_WATER = 'Eau trouble';
+export const CLEAR_WATER = 'Eau claire';
+
 export function putElementInMiddle(id) {
   document.getElementById(id).scrollIntoView({behavior: 'smooth', block: 'center', inline: 'center'});
 }

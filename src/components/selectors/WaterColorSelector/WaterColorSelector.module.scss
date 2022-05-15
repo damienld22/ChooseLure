@@ -1,0 +1,11 @@
+.choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  justify-items: center;
+}
+
+.selected {
+  border: 2px solid red !important;
+  border-radius: 10%;
+}
